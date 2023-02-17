@@ -2,7 +2,6 @@ package com.example.andr
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 
 class SecondActivity : AppCompatActivity() {
@@ -14,10 +13,12 @@ class SecondActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
-        val textView: TextView = findViewById(R.id.squareNumber)
+        val textViewNumber: TextView = findViewById(R.id.numberString)
+        val textViewSquareNumber: TextView = findViewById(R.id.squareNumber)
         if (bundle != null) {
             val number = bundle.getString(numberText)?.toInt() ?: 0
-            textView.text = (number*number).toString()
+            textViewSquareNumber.text = (number * number).toString()
+            textViewNumber.text = resources.getString(R.string.squareString, number)
         }
         LogObject.logInfo("onCreate", activityName)
     }
@@ -27,7 +28,7 @@ class SecondActivity : AppCompatActivity() {
         LogObject.logInfo("onStart", activityName)
     }
 
-    override fun onRestart(){
+    override fun onRestart() {
         super.onRestart()
         LogObject.logInfo("onRestart", activityName)
     }

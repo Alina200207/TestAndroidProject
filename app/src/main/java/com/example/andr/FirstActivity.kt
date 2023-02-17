@@ -23,7 +23,7 @@ class FirstActivity : AppCompatActivity() {
         LogObject.logInfo("onStart", activityName)
     }
 
-    override fun onRestart(){
+    override fun onRestart() {
         super.onRestart()
         LogObject.logInfo("onRestart", activityName)
     }
@@ -62,8 +62,9 @@ class FirstActivity : AppCompatActivity() {
         val go: Intent = Intent(this, SecondActivity::class.java)
             .apply {
                 val bundle = Bundle()
-                    .apply {putString(numberText, textView.text as String?) }
-                putExtras(bundle) }
+                    .apply { putString(numberText, textView.text as String?) }
+                putExtras(bundle)
+            }
         startActivity(go)
     }
 }
